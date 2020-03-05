@@ -1,4 +1,4 @@
-# Scalable Node.js with Kubernetes and Helm
+# Scalable Node.js with Kubernetes, Helm, Grafana, Prometheus, Jaegar, Zipkin and OpenTracing
 
 ## Requirements
 
