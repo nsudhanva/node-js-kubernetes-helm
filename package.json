@@ -6,15 +6,15 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@cloudnative/health-connect": "^2.1.0",
-    "appmetrics-prometheus": "^3.1.0",
+    "@cloudnative/health-connect": "^2.0.0",
+    "appmetrics-prometheus": "^2.0.0",
     "appmetrics-zipkin": "^1.1.1",
-    "cookie-parser": "^1.4.4",
-    "debug": "^4.1.1",
-    "express": "^4.17.1",
-    "http-errors": "^1.7.3",
-    "morgan": "^1.9.1",
-    "nodemon": "^2.0.2",
-    "pug": "^2.0.4"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0",
+    "nodemon": "^1.19.0"
   }
 }

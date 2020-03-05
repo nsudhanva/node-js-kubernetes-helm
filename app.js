@@ -1,13 +1,28 @@
+var appzip = require('appmetrics-zipkin')({
+  host: 'jaeger-collector.jaeger.svc.cluster.local',
+  port: 9411,
+  serviceName: 'nodeserver'
+});
+var prom = require('appmetrics-prometheus').attach()
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const health = require('@cloudnative/health-connect');
+let healthcheck = new health.HealthChecker();
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+let pingCheck = new health.PingCheck("example.com");
+healthcheck.registerReadinessCheck(pingCheck);
+
+app.use('/live', health.LivenessEndpoint(healthcheck));
+app.use('/ready', health.ReadinessEndpoint(healthcheck))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
